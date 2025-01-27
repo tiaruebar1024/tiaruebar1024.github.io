@@ -195,6 +195,7 @@ analytics.nike.com.edgekey.net
 analytics.nionex.net
 analytics.o11.tech
 analytics.pagefly.io
+analytics.pinterest.com
 analytics.plex.tv
 analytics.prensaiberica.es
 analytics.prod.mybuddy.ai
@@ -430,9 +431,11 @@ log.avlyun.sec.intl.miui.com
 log.byteoversea.com
 log.byteoversea.com.edgekey.net
 log.byteoversea.com.ttdns2.com
+log.fc.yahoo.com
 log.hytto.com
 log.lovense-api.com
 log.lovense.com
+log.pinterest.com
 log.snssdk.com
 log.snssdk.com.bytedns1.com
 log.snssdk.com.queniuyk.com
