@@ -539,6 +539,7 @@ p16-ad.byteoversea.com
 pagead-googlehosted.l.google.com
 pagead-tpc.l.google.com
 pagead.l.google.com
+pagead2.googlesyndication.com
 pageadgooglesyndication.com
 pai.googlezip.net
 partnerad.l.google.com
@@ -633,6 +634,7 @@ tokv.com
 trace.svc.ui.com
 tracing.roblox.com
 track.ad.xiaomi.com
+track.adform.net
 track.appsflyer.com
 track.leanlab.co
 track.smartmania.cz

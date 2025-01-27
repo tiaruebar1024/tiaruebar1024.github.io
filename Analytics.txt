@@ -8,7 +8,6 @@
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
-track.adform.net
 81com.iab.omid.library
 a8.track.entry.dokoyorimo.com
 a8track.aidmybank.com
@@ -466,6 +465,7 @@ tokv.com
 trace.svc.ui.com
 tracing.roblox.com
 track.ad.xiaomi.com
+track.adform.net
 track.appsflyer.com
 track.leanlab.co
 track.smartmania.cz
