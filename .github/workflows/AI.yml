@@ -1,0 +1,50 @@
+name: Remove Duplicates and Merge Files
+
+on:
+  push:
+    branches:
+      - Blocklist
+
+jobs:
+  process-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: Blocklist
+
+      - name: Remove duplicates from Analytics.txt
+        run: sort Analytics.txt | uniq > Analytics_temp.txt && mv Analytics_temp.txt Analytics.txt
+
+      - name: Remove duplicates from Ads.txt
+        run: sort Ads.txt | uniq > Ads_temp.txt && mv Ads_temp.txt Ads.txt
+
+      - name: Remove duplicates from Everything.txt
+        run: sort Everything.txt | uniq > Everything_temp.txt && mv Everything_temp.txt Everything.txt
+
+      - name: Remove duplicates from Idk.txt
+        run: |
+          if [ -f Idk.txt ]; then
+            sort Idk.txt | uniq > Idk_temp.txt && mv Idk_temp.txt Idk.txt
+          fi
+
+      - name: Merge files into Everything.txt
+        run: |
+          cat Analytics.txt Ads.txt > Everything_merged.txt
+          if [ -f Idk.txt ]; then
+            cat Idk.txt >> Everything_merged.txt
+          fi
+          sort Everything_merged.txt | uniq > Everything.txt
+          rm Everything_merged.txt
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Analytics.txt Ads.txt Everything.txt
+          if [ -f Idk.txt ]; then
+            git add Idk.txt
+          fi
+          git commit -m "Remove duplicates and merge files" || echo "No changes to commit"
+          git push origin Blocklist
