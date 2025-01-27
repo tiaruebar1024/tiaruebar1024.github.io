@@ -525,3 +525,6 @@ xlog.tiktokv.com
 xlog.tiktokv.com.edgesuite.net
 xp-cdn.apple.com
 youtubeanalytics.googleapis.com
+log.pinterest.com
+analytics.pinterest.com
+log.fc.yahoo.com
