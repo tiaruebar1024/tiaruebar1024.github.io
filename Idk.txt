@@ -1,0 +1,13 @@
+ad-g.doubleclick.net #testing
+ad2.doubleclick.net #testing
+collector.github.com
+com.applovin
+com.appsflyer
+com.flurry
+com.mopub
+glitchtip.jgeek00.com
+googleads.g.doubleclick.net #testing
+googleads2.g.doubleclick.net #testing
+googleads4.g.doubleclick.net #testing
+mobile-displayads.l.doubleclick.net #testing
+shealth-analytics-api.samsunghealth.com
