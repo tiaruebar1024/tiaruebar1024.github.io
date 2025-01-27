@@ -1,3 +1,3 @@
 1. dad
-2. dadawdad
-3. dadadawd
+2. dadawdad.com
+3. dadadawd.org
