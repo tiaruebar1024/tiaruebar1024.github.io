@@ -3,7 +3,7 @@ name: Remove Duplicates and Merge Files
 on:
   push:
     branches:
-      - Blocklist
+      - main
 
 jobs:
   process-files:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: Blocklist
+          ref: main
 
       - name: Remove duplicates from Analytics.txt
         run: sort Analytics.txt | uniq > Analytics_temp.txt && mv Analytics_temp.txt Analytics.txt
@@ -47,4 +47,4 @@ jobs:
             git add Idk.txt
           fi
           git commit -m "Remove duplicates and merge files" || echo "No changes to commit"
-          git push origin Blocklist
+          git push origin main
