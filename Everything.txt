@@ -473,6 +473,7 @@ log77-normal-c-useast1a.tiktokv.com
 logbak.hicloud.com
 logbk.tiktokv.com
 logbk.tiktokv.com.edgekey.net
+logs.netflix.com
 logserver.nzxcloud.cn
 logservice-dra.platform.hicloud.com
 logservice-dre.platform.hicloud.com

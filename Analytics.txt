@@ -4,7 +4,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-logs.netflix.com
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
@@ -339,6 +338,7 @@ log77-normal-c-useast1a.tiktokv.com
 logbak.hicloud.com
 logbk.tiktokv.com
 logbk.tiktokv.com.edgekey.net
+logs.netflix.com
 logserver.nzxcloud.cn
 logservice-dra.platform.hicloud.com
 logservice-dre.platform.hicloud.com
