@@ -5,10 +5,10 @@ com.applovin
 com.appsflyer
 com.flurry
 com.mopub
+discovery.meethue.com
 glitchtip.jgeek00.com
 googleads.g.doubleclick.net #testing
 googleads2.g.doubleclick.net #testing
 googleads4.g.doubleclick.net #testing
 mobile-displayads.l.doubleclick.net #testing
 shealth-analytics-api.samsunghealth.com
-discovery.meethue.com

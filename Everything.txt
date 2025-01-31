@@ -329,6 +329,7 @@ datarouter.cfef.live.use1a.on.epicgames.com
 datarouter.ol.epicgames.com
 device-metrics-us.amazon.com
 df.telemetry.microsoft.com
+discovery.meethue.com
 dit.whatsapp.net
 dmtracker.com
 do-not-tracker.org
