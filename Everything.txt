@@ -184,6 +184,7 @@ analytics.freesound.org
 analytics.getpocket.com
 analytics.getpostman.com
 analytics.google.com
+analytics.hardlightgames.com
 analytics.hosting24.com
 analytics.kaltura.com
 analytics.kargovideo.com
@@ -225,6 +226,7 @@ analytics.threedeepmarketing.com
 analytics.tiktok.com
 analytics.tiktok.com.edgekey.net
 analytics.tiktok.com.ttdns2.com
+analytics.tool.lu
 analytics.trustyou.com
 analytics.twitter.com
 analytics.ukhc.org
@@ -249,6 +251,7 @@ analytics.wienerberger.cz
 analytics.witglobal.net
 analytics.x.com
 analytics.xcal.tv
+analytics.xgimi.com
 analytics.xyzmedia.net
 analytics.yahoo.com
 analytics.yola.net
@@ -262,6 +265,7 @@ analytics01.cisco.netacad.com
 analytics02.cisco.netacad.com
 analytics03.cisco.netacad.com
 analytics3.starschina.com
+analytics33.techsmith.com
 analyticsmatomo.ggdghor.nl
 analyticssec.overwolf.com
 aos.cn-northwest-1.api.amazonwebservices.com.cn
@@ -305,6 +309,8 @@ click.aliexpress.com
 click.discord.com
 click.googleanalytics.com
 client-telemetry.roblox.com
+collect.tealiumiq.com
+collector-medium.lightstep.com
 collector-ops.twitter.com
 collector.bsg.brave.com
 collector.bsg.bravesoftware.com
@@ -336,6 +342,8 @@ df.telemetry.microsoft.com
 discovery.meethue.com
 dit.whatsapp.net
 dmtracker.com
+dmtracking.alibaba.com
+dmtracking2.alibaba.com
 do-not-tracker.org
 download-stats.mozilla.org
 download-stats.r53-2.services.mozilla.com
@@ -577,6 +585,7 @@ radarsubmissions.apple.com.akadns.net
 region1.app-measurement.com
 region1.google-analytics.com
 reports.wes.df.telemetry.microsoft.com
+rosenberg.appmetrica.yandex.net
 row-advil.waze.com
 rtc-logger-va.tiktokv.com
 rtc-logger-va.tiktokv.com.edgekey.net
@@ -616,11 +625,14 @@ ssl-google-analytics.l.google.com
 ssl.google-analytics.com
 ssl.googleanalytics.com
 startup.mobile.yandex.net
+stat.360safe.com
+stat.m.360.cn
 static.trckingbyte.com
 stats.appsflyer.com
 stats.browsertrix.com
 stats.gc.apple.com
 stats.unity3d.com
+stats.wp.com
 stg-iad.apple.com
 stocks-analytics-events.apple.com
 telemetr.io
