@@ -11,3 +11,4 @@ googleads2.g.doubleclick.net #testing
 googleads4.g.doubleclick.net #testing
 mobile-displayads.l.doubleclick.net #testing
 shealth-analytics-api.samsunghealth.com
+discovery.meethue.com
