@@ -109,6 +109,7 @@ analytic.tidewater.aaa.com
 analytic.underarmour.com
 analytics-api-external-alb-222534322.cn-north-1.elb.amazonaws.com.cn
 analytics-api.samsunghealthcn.com
+analytics-api.vanceai.com
 analytics-attribution-va.tiktok.com
 analytics-attribution-va.tiktok.com.edgekey.net
 analytics-attribution.tiktok.com
@@ -128,6 +129,7 @@ analytics-i18n.tiktok.com.edgekey.net
 analytics-ie.tiktokw.eu
 analytics-ie.tiktokw.eu.edgesuite.net
 analytics-ie.tiktokw.eu.ttdns3.com
+analytics-ingestion-production.tubitv.com
 analytics-ingress-global.bitmovin.com
 analytics-platform.shinestyapi.com
 analytics-prd.aws.wehaa.net
@@ -164,6 +166,7 @@ analytics.ccs.mcafee.com
 analytics.chegg.com
 analytics.clic2buy.com
 analytics.cloud.coveo.com
+analytics.cloudevo.ai
 analytics.cnblogs.com
 analytics.cnd-motionmedia.de
 analytics.cohesionapps.com
@@ -191,6 +194,7 @@ analytics.mobile.yandex.net
 analytics.msn.com
 analytics.newscred.com
 analytics.newsinc.com
+analytics.nike.com
 analytics.nike.com.edgekey.net
 analytics.nionex.net
 analytics.o11.tech
@@ -343,6 +347,7 @@ engine.mobileapptracking.com
 etracker.com
 europe.event-tracking.samsung.com
 event-tracking.samsung.com
+events.app-performance.music.amazon.dev
 events.data.microsoft.com
 events.gfe.nvidia.com
 eviltracker.net
@@ -356,6 +361,7 @@ extlog.snssdk.com.bytedns1.com
 extlog.snssdk.com.queniuiq.com
 extlog.snssdk.com.w.kunlunca.com
 extremetracking.com
+femetrics.grammarly.io
 glitchtip.jgeek00.com
 global.telemetry.insights.video.a2z.com
 google-analytics-cn.com
@@ -406,6 +412,7 @@ incoming-telemetry.thunderbird.net
 infinity-tracking.net
 info.analysis.kp.sec.miui.com
 insanetrack.com
+intake-analytics.wikimedia.org
 io.opentelemetry
 itrack.it
 jmt17.google.com
@@ -432,11 +439,14 @@ log.avlyun.sec.intl.miui.com
 log.byteoversea.com
 log.byteoversea.com.edgekey.net
 log.byteoversea.com.ttdns2.com
+log.cpex.cz
 log.fc.yahoo.com
 log.hytto.com
+log.idnes.cz
 log.lovense-api.com
 log.lovense.com
 log.pinterest.com
+log.shortbread.aws.dev
 log.snssdk.com
 log.snssdk.com.bytedns1.com
 log.snssdk.com.queniuyk.com
@@ -474,6 +484,7 @@ log77-normal-c-useast1a.tiktokv.com
 logbak.hicloud.com
 logbk.tiktokv.com
 logbk.tiktokv.com.edgekey.net
+logging.g.sst.secureserver.net
 logs.netflix.com
 logserver.nzxcloud.cn
 logservice-dra.platform.hicloud.com
@@ -505,6 +516,7 @@ meshtelemetry.googleapis.com
 metrica.yandex.com
 metrica.yandex.net
 metrica.yandex.ru
+metricreceiver.cellrebel.com
 metrics-dra.dt.dbankcloud.cn
 metrics-dre.dt.dbankcloud.cn
 metrics-logger.spot.im
@@ -555,6 +567,7 @@ pixel.quantserve.com
 prd-usw2-requestattribution-iad.apple.com
 proxy-skadnetwork.apple.com
 pt-analytics-elb-718673154.us-west-2.elb.amazonaws.com
+publictelemetry.tophat.com
 qa-iad.apple.com
 qwapi.com
 r.browser.miui.com
@@ -630,6 +643,7 @@ telemetry.mozilla.org
 telemetry.nvidia.com
 telemetry.sdk.inmobi.com
 telemetry.soundcloud.com
+telemetry.svc.transifex.net
 telemetry.urs.microsoft.com
 telemetry.zoom.us
 tls.telemetry.swe.quicinc.com
@@ -641,12 +655,14 @@ tracing.roblox.com
 track.ad.xiaomi.com
 track.adform.net
 track.appsflyer.com
+track.leady.cz
 track.leanlab.co
 track.smartmania.cz
 track1.avplayer.com
 trackedlink.net
 tracker.fyber.com
 trackersimulator.org
+tracking-app.diginetica.net
 tracking-website-prod-674464163.us-east-1.elb.amazonaws.com
 tracking.admobsphere.com
 tracking.chartboost.com
