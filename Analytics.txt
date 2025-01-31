@@ -2,6 +2,7 @@
 16com.amazonaws.metrics
 202com.google.android.gms.tagmanager
 23com.amplifyframework.analytics
+tracking.opencandy.com.s3.amazonaws.com
 25com.amazonaws.metrics
 27com.google.firebase.analytics
 2com.google.firebase.analytics
