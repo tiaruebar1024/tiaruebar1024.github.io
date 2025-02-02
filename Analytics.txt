@@ -4,7 +4,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-w3-reporting-nel.reddit.com
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
@@ -532,6 +531,7 @@ ugattribution-sg.tiktokv.com.edgekey.net
 video-ad-stats.googlesyndication.com
 visitor-analytics.io
 vortex.data.microsoft.com
+w3-reporting-nel.reddit.com
 watson.ppe.telemetry.microsoft.com
 watson.telemetry.microsoft.com
 weather-analytics-events.apple.com
