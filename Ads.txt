@@ -4,15 +4,15 @@
 2o7.net
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
-ad-g.doubleclick.net
-ad2.doubleclick.net
 aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-east-retail-rtb.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
 aax.amazon-adsystem.com
+ad-g.doubleclick.net
 ad.doubleclick.net
+ad2.doubleclick.net
 adconfiguration.roblox.com
 adgoogle.net
 admob-cn.com

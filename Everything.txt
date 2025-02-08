@@ -32,8 +32,10 @@ abs-lod.cn-north-1.amazonaws.com.cn
 abtest.mistat.intl.xiaomi.com
 abtest.mistat.xiaomi.com
 acfeedbackws.icloud.com
+ad-g.doubleclick.net
 ad-g.doubleclick.net #testing
 ad.doubleclick.net
+ad2.doubleclick.net
 ad2.doubleclick.net #testing
 adconfiguration.roblox.com
 adeventtracker.spotify.com
