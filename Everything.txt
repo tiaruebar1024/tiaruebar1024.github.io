@@ -436,11 +436,8 @@ google-analytics-cn.com
 google-analytics.com
 googleadapis.com
 googleads-cn.com
-googleads.g.doubleclick.net #testing
 googleads.github.io
 googleads.googleapis.com
-googleads2.g.doubleclick.net #testing
-googleads4.g.doubleclick.net #testing
 googleadservices-cn.com
 googleadservices.com
 googleoptimize-cn.com
@@ -641,7 +638,6 @@ mibi.api.xiaomi.com
 mobile-collector.newrelic.com
 mobile-data-dev.s3.brave.software
 mobile-data.s3.brave.com
-mobile-displayads.l.doubleclick.net #testing
 mobileapptracking.com
 mon.be.xiaomi.com
 mon.byteoversea.com
