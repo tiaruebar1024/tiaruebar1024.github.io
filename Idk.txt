@@ -1,4 +1,4 @@
-ad-g.doubleclick.net #testing
+ad-g.doubleclick.net #testin
 ad2.doubleclick.net #testing
 collector.github.com
 com.applovin
