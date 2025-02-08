@@ -33,7 +33,7 @@ abtest.mistat.intl.xiaomi.com
 abtest.mistat.xiaomi.com
 acfeedbackws.icloud.com
 ad-g.doubleclick.net
-ad-g.doubleclick.net #testing
+ad-g.doubleclick.net #testin
 ad.doubleclick.net
 ad2.doubleclick.net
 ad2.doubleclick.net #testing
