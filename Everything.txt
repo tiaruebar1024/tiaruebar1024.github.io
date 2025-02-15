@@ -456,6 +456,7 @@ googletraveladservices.com
 googlevads-cn.com
 gpm-mon-sg.byteoversea.com
 gpm-mon-sg.byteoversea.com.edgesuite.net
+graph.instagram.com
 gstaticadssl.l.google.com
 heapanalytics.com
 iad-apple.com.akadns.net

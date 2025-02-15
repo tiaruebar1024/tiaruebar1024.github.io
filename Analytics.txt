@@ -3,7 +3,6 @@
 202com.google.android.gms.tagmanager
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
-graph.instagram.com
 27com.google.firebase.analytics
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
@@ -353,6 +352,7 @@ googletagmanager.com
 googletagservices.com
 gpm-mon-sg.byteoversea.com
 gpm-mon-sg.byteoversea.com.edgesuite.net
+graph.instagram.com
 heapanalytics.com
 iadsdk.apple.com
 image.box.xiaomi.com
