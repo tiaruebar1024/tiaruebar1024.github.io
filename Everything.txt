@@ -862,6 +862,7 @@ telemetry-data.r53-2.services.mozilla.com
 telemetry-experiment.cdn.mozilla.net
 telemetry.api.swiftkey.com
 telemetry.appex.bing.net
+telemetry.eu-frankfurt-1.oraclecloud.com
 telemetry.gfe.nvidia.com
 telemetry.insights.video.a2z.com
 telemetry.microsoft.com
