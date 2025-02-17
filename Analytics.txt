@@ -3,6 +3,7 @@
 202com.google.android.gms.tagmanager
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
+telemetry.eu-frankfurt-1.oraclecloud.com
 27com.google.firebase.analytics
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
