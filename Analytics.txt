@@ -1,4 +1,5 @@
 14io.opencensus
+region1.analytics.google.com
 16com.amazonaws.metrics
 202com.google.android.gms.tagmanager
 23com.amplifyframework.analytics
