@@ -693,6 +693,7 @@ r.browser.miui.com
 rabbitmq-oa-logging.yo-digital.com
 radarsubmissions.apple.com
 radarsubmissions.apple.com.akadns.net
+region1.analytics.google.com
 region1.app-measurement.com
 region1.google-analytics.com
 report.gras.samsungdm.com
