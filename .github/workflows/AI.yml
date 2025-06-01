@@ -20,11 +20,11 @@ jobs:
       - name: Remove duplicates from Ads.txt
         run: sort Ads.txt | uniq > Ads_temp.txt && mv Ads_temp.txt Ads.txt
 
+      - name: Remove duplicates from Idk.txt
+        run: sort Idk.txt | uniq > Idk_temp.txt && mv Idk_temp.txt Idk.txt        
+
       - name: Remove duplicates from Everything.txt
         run: sort Everything.txt | uniq > Everything_temp.txt && mv Everything_temp.txt Everything.txt
-
-      - name: Remove duplicates from Idk.txt
-        run: sort Idk.txt | uniq > Idk.txt && mv Idk_temp.txt Idk.txt
 
       - name: Merge files into Everything.txt
         run: |
