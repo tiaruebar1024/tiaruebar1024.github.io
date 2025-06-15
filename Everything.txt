@@ -836,6 +836,7 @@ staging-diagnosis.ad.xiaomi.com
 startup.mobile.yandex.net
 stat.360safe.com
 stat.m.360.cn
+static.trafficjunky.com
 static.trckingbyte.com
 stats.appsflyer.com
 stats.browsertrix.com
