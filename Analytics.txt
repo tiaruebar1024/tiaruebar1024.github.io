@@ -4,7 +4,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-bfmobileharvest-client-tracking.goodgamestudios.com
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
@@ -231,6 +230,7 @@ awssgp0-files.fds.api.xiaomi.com
 awstrack.me
 awsusor0-cdn.fds-ssl.api.xiaomi.com
 b2banalytics.samsungknox.com
+bfmobileharvest-client-tracking.goodgamestudios.com
 bgp.fe01.c3.xiaomi.com
 bigdata-lbs-pri-c3.alb.xiaomi.com
 bigdata.ssp.samsung.com

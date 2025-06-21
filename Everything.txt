@@ -313,6 +313,7 @@ awssgp0-files.fds.api.xiaomi.com
 awstrack.me
 awsusor0-cdn.fds-ssl.api.xiaomi.com
 b2banalytics.samsungknox.com
+bfmobileharvest-client-tracking.goodgamestudios.com
 bgp.fe01.c3.xiaomi.com
 bigdata-lbs-pri-c3.alb.xiaomi.com
 bigdata.ssp.samsung.com
