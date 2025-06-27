@@ -335,6 +335,7 @@ cdn.owebanalytics.com
 cellrebel.com
 certify-js.alexametrics.com
 certify.alexametrics.com
+chip.cz
 click.aliexpress.com
 click.discord.com
 click.googleanalytics.com

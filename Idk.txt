@@ -1,5 +1,6 @@
 ad-g.doubleclick.net #testin
 ad2.doubleclick.net #testing
+chip.cz
 collector.github.com
 com.applovin
 com.appsflyer
@@ -9,4 +10,3 @@ discovery.meethue.com
 glitchtip.jgeek00.com
 shealth-analytics-api.samsunghealth.com
 track.adform.net
-chip.cz
