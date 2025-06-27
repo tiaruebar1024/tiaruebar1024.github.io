@@ -9,3 +9,4 @@ discovery.meethue.com
 glitchtip.jgeek00.com
 shealth-analytics-api.samsunghealth.com
 track.adform.net
+chip.cz
