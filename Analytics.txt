@@ -7,6 +7,7 @@
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
+analyticssec.overwolf.com
 44com.google.android.gms.analytics
 81com.iab.omid.library
 a0.app.xiaomi.com
