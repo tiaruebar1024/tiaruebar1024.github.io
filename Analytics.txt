@@ -8,7 +8,6 @@
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
-tracking.overwolf.com
 81com.iab.omid.library
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
@@ -745,6 +744,7 @@ tracking.leadspark.io
 tracking.miui.com
 tracking.mkt-email.samsungsds.com
 tracking.opencandy.com.s3.amazonaws.com
+tracking.overwolf.com
 tracking.propellerads.com
 tracking.rus.miui.com
 tracking.tidalhifi.com
