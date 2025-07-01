@@ -801,6 +801,7 @@ samsunguk.api.useinsider.com
 samsungusa.api.useinsider.com
 samsungvn.api.useinsider.com
 sanalytics.disneyplus.com
+sb.scorecardresearch.com
 sc-analytics.appspot.com
 sdk-analytics.devenv.kidoz.net
 sdkintg-iad.apple.com

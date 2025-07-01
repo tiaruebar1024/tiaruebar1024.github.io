@@ -8,7 +8,6 @@
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
-sb.scorecardresearch.com
 81com.iab.omid.library
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
@@ -644,6 +643,7 @@ samsunguk.api.useinsider.com
 samsungusa.api.useinsider.com
 samsungvn.api.useinsider.com
 sanalytics.disneyplus.com
+sb.scorecardresearch.com
 sc-analytics.appspot.com
 sdk-analytics.devenv.kidoz.net
 secure.quantserve.com
