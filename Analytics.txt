@@ -162,7 +162,6 @@ analytics.twitter.com
 analytics.ukhc.org
 analytics.underarmour.com
 analytics.unilogcorp.com
-analytics.unity3d.com
 analytics.us.tiktok.com
 analytics.us.tiktok.com.edgesuite.net
 analytics.verizon.com
@@ -680,7 +679,6 @@ stats.appsflyer.com
 stats.browsertrix.com
 stats.gc.apple.com
 stats.samsungpass.com
-stats.unity3d.com
 stats.wp.com
 stocks-analytics-events.apple.com
 stocks-analytics-events.news.apple-dns.net
