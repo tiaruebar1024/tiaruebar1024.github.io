@@ -23,6 +23,7 @@ acfeedbackws.icloud.com
 adeventtracker.spotify.com
 adfstat.yandex.ru
 adobedc.net
+api.segment.io
 ads-ie.tiktokw.eu
 ads-ttp2.tiktokw.eu
 adstats.tencentmusic.com
