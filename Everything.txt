@@ -286,6 +286,7 @@ api.ads.xiaomi.com
 api.collect.data.intl.miui.com
 api.d.xiaomi.com
 api.developer.xiaomi.com
+api.segment.io
 api2.branch.io
 app-analytics-v2.snapchat.com
 app-analytics.snapchat.com

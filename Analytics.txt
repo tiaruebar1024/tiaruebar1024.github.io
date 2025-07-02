@@ -23,7 +23,6 @@ acfeedbackws.icloud.com
 adeventtracker.spotify.com
 adfstat.yandex.ru
 adobedc.net
-api.segment.io
 ads-ie.tiktokw.eu
 ads-ttp2.tiktokw.eu
 adstats.tencentmusic.com
@@ -207,6 +206,7 @@ api.ads.xiaomi.com
 api.collect.data.intl.miui.com
 api.d.xiaomi.com
 api.developer.xiaomi.com
+api.segment.io
 api2.branch.io
 app-analytics-v2.snapchat.com
 app-analytics.snapchat.com
