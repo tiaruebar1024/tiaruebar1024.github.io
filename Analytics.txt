@@ -4,8 +4,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-discovery.meethue.com
-glitchtip.jgeek00.com
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
@@ -307,6 +305,7 @@ device-metrics-us.amazon.com
 df.telemetry.microsoft.com
 diagmon-policy.samsungdm.com
 diagmon-serviceapi.samsungdm.com
+discovery.meethue.com
 dit.whatsapp.net
 dmd.metaservices.microsoft.com
 dmtracker.com
@@ -344,6 +343,7 @@ feedbackws.icloud.com
 femetrics.grammarly.io
 ghochv3eng.trafficmanager.net
 gld.samsungosp.com
+glitchtip.jgeek00.com
 global-ad-extranet-pri-azams.alb.xiaomi.com
 global-ad-extranet-pri-azpn.alb.xiaomi.com
 global-ad-intl-pri-alisgp.alb.xiaomi.com

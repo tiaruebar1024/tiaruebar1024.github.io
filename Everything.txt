@@ -392,6 +392,7 @@ device-metrics-us.amazon.com
 df.telemetry.microsoft.com
 diagmon-policy.samsungdm.com
 diagmon-serviceapi.samsungdm.com
+discovery.meethue.com
 dit.whatsapp.net
 dmd.metaservices.microsoft.com
 dmtracker.com
@@ -429,6 +430,7 @@ feedbackws.icloud.com
 femetrics.grammarly.io
 ghochv3eng.trafficmanager.net
 gld.samsungosp.com
+glitchtip.jgeek00.com
 global-ad-extranet-pri-azams.alb.xiaomi.com
 global-ad-extranet-pri-azpn.alb.xiaomi.com
 global-ad-intl-pri-alisgp.alb.xiaomi.com
