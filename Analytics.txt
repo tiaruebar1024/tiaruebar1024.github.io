@@ -9,6 +9,7 @@
 404com.iab.omid.library
 44com.google.android.gms.analytics
 81com.iab.omid.library
+collector.github.com
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
 a8track.aidmybank.com
