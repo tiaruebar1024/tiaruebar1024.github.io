@@ -5,7 +5,4 @@ com.applovin
 com.appsflyer
 com.flurry
 com.mopub
-discovery.meethue.com
-glitchtip.jgeek00.com
-shealth-analytics-api.samsunghealth.com
 track.adform.net
