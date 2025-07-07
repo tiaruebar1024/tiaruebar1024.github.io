@@ -4,7 +4,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-track.adform.net
 2com.google.firebase.analytics
 349com.google.android.gms.measurement
 404com.iab.omid.library
