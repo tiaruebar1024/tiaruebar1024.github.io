@@ -4,4 +4,3 @@ com.applovin
 com.appsflyer
 com.flurry
 com.mopub
-track.adform.net
