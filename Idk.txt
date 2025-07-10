@@ -4,3 +4,6 @@ com.applovin
 com.appsflyer
 com.flurry
 com.mopub
+connect.facebook.net
+l.facebook.com
+pixel.facebook.com
