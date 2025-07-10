@@ -358,6 +358,7 @@ com.facebook.appevents
 com.flurry
 com.microsoft.appcenter.crashes
 com.mopub
+connect.facebook.net
 consent-analytics.googleapis.com
 consent-analyticsinsights-pa.googleapis.com
 conversionsapigateway.com
@@ -491,6 +492,7 @@ jmt17.google.com
 k.madmetrics.com
 kapetracking.com
 kpu.samsungelectronics.com
+l.facebook.com
 launch.apple.com
 lbs-samsung.swypeconnect.com
 lemon8-api.tiktokv.com
@@ -680,6 +682,7 @@ partnerad.l.google.com
 performance-partners.apple.com
 pipe.aria.microsoft.com
 pixel.admobclick.com
+pixel.facebook.com
 pixel.quantserve.com
 prd-usw2-requestattribution-iad.apple.com
 prderrordumphsm.samsungcloudsolution.com
