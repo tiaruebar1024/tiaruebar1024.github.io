@@ -822,6 +822,7 @@ sentry.be.xiaomi.com
 sentry.io #I know but I'm not removing it
 service.idsync.analytics.yahoo.com
 services.wes.df.telemetry.microsoft.com
+sessions.bugsnag.com
 shealth-analytics-api.samsunghealth.com
 shealth-analytics-stg-api.samsunghealth.com
 shoes.app-xae.xiaomi.com
