@@ -20,6 +20,7 @@ abs-lod.cn-north-1.amazonaws.com.cn
 abtest.mistat.intl.xiaomi.com
 abtest.mistat.xiaomi.com
 acfeedbackws.icloud.com
+sessions.bugsnag.com
 adeventtracker.spotify.com
 adfstat.yandex.ru
 adobedc.net
