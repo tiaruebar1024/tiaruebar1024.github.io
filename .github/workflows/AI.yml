@@ -14,7 +14,7 @@ jobs:
         with:
           ref: main
 
-      - name: Remove duplicates from Analytics.txt
+      - name: Remove duplicates from Blocklist.txt
         run: sort Blocklist.txt | uniq > Blocklist_temp.txt && mv Blocklist.txt Blocklist.txt
         
       - name: Commit changes
