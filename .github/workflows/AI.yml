@@ -15,30 +15,12 @@ jobs:
           ref: main
 
       - name: Remove duplicates from Analytics.txt
-        run: sort Analytics.txt | uniq > Analytics_temp.txt && mv Analytics_temp.txt Analytics.txt
-
-      - name: Remove duplicates from Ads.txt
-        run: sort Ads.txt | uniq > Ads_temp.txt && mv Ads_temp.txt Ads.txt
-
-      - name: Remove duplicates from Idk.txt
-        run: sort Idk.txt | uniq > Idk_temp.txt && mv Idk_temp.txt Idk.txt        
-
-      - name: Remove duplicates from Everything.txt
-        run: sort Everything.txt | uniq > Everything_temp.txt && mv Everything_temp.txt Everything.txt
-
-      - name: Merge files into Everything.txt
-        run: |
-          cat Analytics.txt Ads.txt > Everything_merged.txt
-          if [ -f Idk.txt ]; then
-            cat Idk.txt >> Everything_merged.txt
-          fi
-          sort Everything_merged.txt | uniq > Everything.txt
-          rm Everything_merged.txt
-
+        run: sort Blocklist.txt | uniq > Blocklist_temp.txt && mv Blocklist.txt Blocklist.txt
+        
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Analytics.txt Ads.txt Idk.txt Everything.txt
+          git add Blocklist.txt
           git commit -m "Remove duplicates and merge files" || echo "No changes to commit"
           git push origin main
