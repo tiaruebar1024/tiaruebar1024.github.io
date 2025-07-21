@@ -1,9 +1,0 @@
-ad-g.doubleclick.net #testin
-ad2.doubleclick.net #testing
-com.applovin
-com.appsflyer
-com.flurry
-com.mopub
-connect.facebook.net
-l.facebook.com
-pixel.facebook.com
