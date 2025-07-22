@@ -7,7 +7,6 @@
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
-analytics.cpex.cz
 2com.google.firebase.analytics
 2o7.net
 349com.google.android.gms.measurement
@@ -181,6 +180,7 @@ analytics.cnd-motionmedia.de
 analytics.cohesionapps.com
 analytics.contentexchange.me
 analytics.convertlanguage.com
+analytics.cpex.cz
 analytics.disneyinternational.com
 analytics.distributednews.com
 analytics.ekonsilio.io
