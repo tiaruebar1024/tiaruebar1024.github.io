@@ -13,7 +13,6 @@
 404com.iab.omid.library
 44com.google.android.gms.analytics
 81com.iab.omid.library
-analyticsnew.overwolf.com
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
 a8track.aidmybank.com
@@ -276,6 +275,7 @@ analytics03.cisco.netacad.com
 analytics3.starschina.com
 analytics33.techsmith.com
 analyticsmatomo.ggdghor.nl
+analyticsnew.overwolf.com
 analyticssec.overwolf.com
 aos.cn-northwest-1.api.amazonwebservices.com.cn
 api-adservices.apple.com
