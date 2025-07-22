@@ -15,7 +15,7 @@ jobs:
           ref: main
 
       - name: Remove duplicates from Blocklist.txt
-        run: sort Blocklist.txt | uniq > Blocklist_temp.txt && mv Blocklist.txt Blocklist.txt
+        run: sort Blocklist.txt | uniq > Blocklist_temp.txt && mv Blocklist_temp.txt Blocklist.txt
         
       - name: Commit changes
         run: |
