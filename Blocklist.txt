@@ -5,6 +5,7 @@
 202com.google.android.gms.tagmanager
 207.net
 23com.amplifyframework.analytics
+www.google-analytics.com
 25com.amazonaws.metrics
 27com.google.firebase.analytics
 2com.google.firebase.analytics
