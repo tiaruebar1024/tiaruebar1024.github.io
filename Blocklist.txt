@@ -5,7 +5,6 @@
 202com.google.android.gms.tagmanager
 207.net
 23com.amplifyframework.analytics
-www.google-analytics.com
 25com.amazonaws.metrics
 27com.google.firebase.analytics
 2com.google.firebase.analytics
@@ -960,6 +959,7 @@ www.abtest.mistat.xiaomi.com
 www.analytics.ff.avast.sec.miui.com
 www.analyticsinsights-pa.googleapis.com
 www.analyticssearch-pa.googleapis.com
+www.google-analytics.com
 www.googletagmanager.com
 www.miuiboot.tracking.intl.miui.com
 www.miuiboot.tracking.miui.com
