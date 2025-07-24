@@ -9,6 +9,7 @@
 27com.google.firebase.analytics
 2com.google.firebase.analytics
 2o7.net
+tracking.epicgames.com
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
