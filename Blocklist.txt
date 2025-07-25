@@ -12,7 +12,6 @@
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
-tracking.eu.miui.com
 81com.iab.omid.library
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
@@ -911,6 +910,7 @@ tracking.bp01.net
 tracking.chartboost.com
 tracking.digitalocean.com
 tracking.epicgames.com
+tracking.eu.miui.com
 tracking.heydata.eu
 tracking.india.miui.com
 tracking.intl.miui.com
