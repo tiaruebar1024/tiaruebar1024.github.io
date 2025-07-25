@@ -4,6 +4,7 @@
 16com.amazonaws.metrics
 202com.google.android.gms.tagmanager
 207.net
+o1069899.ingest.sentry.io
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
