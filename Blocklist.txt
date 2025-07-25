@@ -4,7 +4,6 @@
 16com.amazonaws.metrics
 202com.google.android.gms.tagmanager
 207.net
-o1069899.ingest.sentry.io
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
@@ -662,6 +661,7 @@ nmetrics.samsung.com
 nmetrics.samsungmobile.com
 notes-analytics-events.apple.com
 notes-analytics-events.news.apple-dns.net
+o1069899.ingest.sentry.io
 o2o.api.xiaomi.com
 oca.telemetry.microsoft.com
 omtrdc.com
