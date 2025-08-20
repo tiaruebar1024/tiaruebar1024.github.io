@@ -17,15 +17,15 @@ jobs:
       - name: Check domains with PowerShell
         shell: powershell
         run: |
-          Write-Host "🔍 Checking domains in blocklist.txt" -ForegroundColor Cyan
+          Write-Host "🔍 Checking domains in Blocklist.txt" -ForegroundColor Cyan
  
-          if (-not (Test-Path "blocklist.txt")) {
-              Write-Error "blocklist.txt not found!"
+          if (-not (Test-Path "Blocklist.txt")) {
+              Write-Error "Blocklist.txt not found!"
               exit 1
           }
  
           # Read domains
-          $domains = Get-Content "blocklist.txt" | Where-Object { 
+          $domains = Get-Content "Blocklist.txt" | Where-Object { 
               $_.Trim() -ne '' -and -not $_.StartsWith('#') -and -not $_.StartsWith('!')
           }
  
@@ -72,7 +72,7 @@ jobs:
           $summary = @"
           ## 🔍 Domain Check Results
  
-          **Triggered by:** Changes to blocklist.txt
+          **Triggered by:** Changes to Blocklist.txt
           **Date:** $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss UTC')
  
           ### Summary
@@ -85,7 +85,7 @@ jobs:
           - ❌ \`dead.txt\` - $($dead.Count) dead domains
  
           $(if ($dead.Count -gt ($domains.Count * 0.15)) { 
-              "### ⚠️ Warning`nHigh number of dead domains detected! Consider reviewing the blocklist." 
+              "### ⚠️ Warning`nHigh number of dead domains detected! Consider reviewing the Blocklist." 
           } else { 
               "### ✅ Status`nDomain health looks good!" 
           })
