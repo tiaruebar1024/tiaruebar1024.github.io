@@ -1,0 +1,47 @@
+name: Remove Duplicates from Blocklist
+ 
+on:
+  push:
+    paths:
+      - 'Blocklist.txt'  # Only trigger on Blocklist.txt changes
+ 
+jobs:
+  deduplicate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Process Blocklist.txt
+        run: |
+          if [ ! -f "Blocklist.txt" ]; then
+              exit 1
+          fi
+ 
+          original_count=$(wc -l < Blocklist.txt)
+ 
+          {
+              grep '^#' Blocklist.txt || true
+              grep -v '^#' Blocklist.txt | grep -v '^$' | sort -u
+          } > Blocklist_temp.txt
+ 
+          new_count=$(wc -l < Blocklist_temp.txt)
+          removed_count=$((original_count - new_count))
+ 
+          if ! cmp -s Blocklist.txt Blocklist_temp.txt; then
+              mv Blocklist_temp.txt Blocklist.txt
+              echo "CHANGES=true" >> $GITHUB_ENV
+              echo "REMOVED_COUNT=$removed_count" >> $GITHUB_ENV
+          else
+              rm Blocklist_temp.txt
+              echo "CHANGES=false" >> $GITHUB_ENV
+          fi
+ 
+      - name: Commit changes
+        if: env.CHANGES == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Blocklist.txt
+          git commit -m "🤖 Remove ${{ env.REMOVED_COUNT }} duplicate entries from Blocklist.txt"
+          git push
