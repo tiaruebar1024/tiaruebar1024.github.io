@@ -3,7 +3,7 @@ name: Check Pi-hole Blocklist Domains
 on:
   push:
     paths:
-      - 'Blocklist.txt'
+      - 'blocklist.txt'
   workflow_dispatch:  # Manual trigger for testing
  
 jobs:
@@ -16,15 +16,18 @@ jobs:
  
       - name: Check domains with bash
         run: |
-          echo "🔍 Checking domains in Blocklist.txt"
+          echo "🔍 Waiting 10 seconds for deduplication script..."
+          sleep 10
  
-          if [ ! -f "Blocklist.txt" ]; then
-              echo "❌ Blocklist.txt not found!"
+          echo "🔍 Checking domains in blocklist.txt"
+ 
+          if [ ! -f "blocklist.txt" ]; then
+              echo "❌ blocklist.txt not found!"
               exit 1
           fi
  
           # Read domains, skip comments and empty lines
-          domains=$(grep -v '^#' Blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
+          domains=$(grep -v '^#' blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
           total_domains=$(echo "$domains" | wc -l)
  
           echo "📊 Testing $total_domains domains..."
@@ -46,14 +49,8 @@ jobs:
               if timeout 5 dig +short "$domain" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' > /dev/null 2>&1; then
                   echo "$domain" >> working.txt
                   working_count=$((working_count + 1))
- 
-                  # Show progress every 100 working domains
-                  if [ $((working_count % 100)) -eq 0 ]; then
-                      echo "✅ Progress: $working_count working, $dead_count dead (Total: $processed/$total_domains)"
-                  fi
               else
                   echo "$domain" >> dead.txt
-                  echo "❌ Dead: $domain"
                   dead_count=$((dead_count + 1))
               fi
  
@@ -74,31 +71,6 @@ jobs:
           echo "- working.txt ($working_count domains)"
           echo "- dead.txt ($dead_count domains)"
  
-          # Create summary report
-          cat > domain-check-summary.md << EOF
-          ## 🔍 Domain Check Results
- 
-          **Triggered by:** Changes to Blocklist.txt
-          **Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
- 
-          ### Summary
-          - **Total domains tested:** $total_domains
-          - **Working domains:** $working_count ($working_pct%)
-          - **Dead domains:** $dead_count ($dead_pct%)
- 
-          ### Files Updated
-          - ✅ \`working.txt\` - $working_count working domains
-          - ❌ \`dead.txt\` - $dead_count dead domains
- 
-          $(if [ $dead_pct -gt 15 ]; then
-              echo "### ⚠️ Warning"
-              echo "High number of dead domains detected! Consider reviewing the blocklist."
-          else
-              echo "### ✅ Status"
-              echo "Domain health looks good!"
-          fi)
-          EOF
- 
           # Set environment variables for later steps
           echo "TOTAL_DOMAINS=$total_domains" >> $GITHUB_ENV
           echo "DEAD_COUNT=$dead_count" >> $GITHUB_ENV
@@ -108,14 +80,13 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add working.txt dead.txt domain-check-summary.md
+          git add working.txt dead.txt
  
           if ! git diff --staged --quiet; then
               git commit -m "🤖 Update domain status files
  
               - Updated working.txt and dead.txt
-              - Checked ${{ env.TOTAL_DOMAINS }} domains from Blocklist.txt
-              - Generated domain-check-summary.md"
+              - Checked ${{ env.TOTAL_DOMAINS }} domains from blocklist.txt"
               git push
           else
               echo "No changes to commit"
@@ -128,7 +99,6 @@ jobs:
           path: |
             working.txt
             dead.txt
-            domain-check-summary.md
           retention-days: 30
  
       - name: Create issue if too many dead domains
@@ -136,13 +106,18 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const fs = require('fs');
-            const summary = fs.readFileSync('domain-check-summary.md', 'utf8');
- 
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `⚠️ High dead domain count: ${{ env.DEAD_COUNT }} domains (${{ env.DEAD_PCT }}%)`,
-              body: summary,
+              body: `## Domain Check Results
+ 
+              **Date:** ${new Date().toISOString().split('T')[0]}
+ 
+              - **Total domains:** ${{ env.TOTAL_DOMAINS }}
+              - **Working domains:** ${${{ env.TOTAL_DOMAINS }} - ${{ env.DEAD_COUNT }}} domains
+              - **Dead domains:** ${{ env.DEAD_COUNT }} domains (${{ env.DEAD_PCT }}%)
+ 
+              High number of dead domains detected! Consider reviewing the blocklist.`,
               labels: ['blocklist', 'maintenance', 'high-priority']
             });
