@@ -8,103 +8,118 @@ on:
  
 jobs:
   check-domains:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
  
-      - name: Check domains with PowerShell
-        shell: powershell
+      - name: Check domains with bash
         run: |
-          Write-Host "🔍 Checking domains in blocklist.txt" -ForegroundColor Cyan
+          echo "🔍 Checking domains in blocklist.txt"
  
-          if (-not (Test-Path "blocklist.txt")) {
-              Write-Error "blocklist.txt not found!"
+          if [ ! -f "blocklist.txt" ]; then
+              echo "❌ blocklist.txt not found!"
               exit 1
-          }
+          fi
  
-          # Read domains
-          $domains = Get-Content "blocklist.txt" | Where-Object { 
-              $_.Trim() -ne '' -and -not $_.StartsWith('#') -and -not $_.StartsWith('!')
-          }
+          # Read domains, skip comments and empty lines
+          domains=$(grep -v '^#' blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
+          total_domains=$(echo "$domains" | wc -l)
  
-          Write-Host "📊 Testing $($domains.Count) domains..." -ForegroundColor Green
+          echo "📊 Testing $total_domains domains..."
  
-          $working = @()
-          $dead = @()
-          $processed = 0
+          # Initialize files
+          > working.txt
+          > dead.txt
  
-          foreach ($domain in $domains) {
-              $processed++
-              $cleanDomain = $domain.Trim()
+          working_count=0
+          dead_count=0
+          processed=0
  
-              try {
-                  $result = Resolve-DnsName $cleanDomain -Type A -ErrorAction Stop -QuickTimeout
-                  $working += $cleanDomain
+          # Check each domain
+          while IFS= read -r domain; do
+              [ -z "$domain" ] && continue
+              processed=$((processed + 1))
+ 
+              # Use dig with timeout to check if domain resolves
+              if timeout 5 dig +short "$domain" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' > /dev/null 2>&1; then
+                  echo "$domain" >> working.txt
+                  working_count=$((working_count + 1))
  
                   # Show progress every 100 working domains
-                  if ($working.Count % 100 -eq 0) {
-                      Write-Host "✅ Progress: $($working.Count) working, $($dead.Count) dead (Total: $processed/$($domains.Count))" -ForegroundColor Green
-                  }
-              }
-              catch {
-                  $dead += $cleanDomain
-                  Write-Host "❌ Dead: $cleanDomain" -ForegroundColor Red
-              }
-          }
+                  if [ $((working_count % 100)) -eq 0 ]; then
+                      echo "✅ Progress: $working_count working, $dead_count dead (Total: $processed/$total_domains)"
+                  fi
+              else
+                  echo "$domain" >> dead.txt
+                  echo "❌ Dead: $domain"
+                  dead_count=$((dead_count + 1))
+              fi
  
-          # Save results to specified files
-          $working | Out-File "working.txt" -Encoding UTF8
-          $dead | Out-File "dead.txt" -Encoding UTF8
+          done <<< "$domains"
+ 
+          # Calculate percentages
+          working_pct=$((working_count * 100 / total_domains))
+          dead_pct=$((dead_count * 100 / total_domains))
  
           # Results summary
-          Write-Host "`n📈 FINAL RESULTS:" -ForegroundColor Cyan
-          Write-Host "Total domains: $($domains.Count)" -ForegroundColor White
-          Write-Host "Working domains: $($working.Count) ($([math]::Round(($working.Count / $domains.Count) * 100, 1))%)" -ForegroundColor Green
-          Write-Host "Dead domains: $($dead.Count) ($([math]::Round(($dead.Count / $domains.Count) * 100, 1))%)" -ForegroundColor Red
+          echo ""
+          echo "📈 FINAL RESULTS:"
+          echo "Total domains: $total_domains"
+          echo "Working domains: $working_count ($working_pct%)"
+          echo "Dead domains: $dead_count ($dead_pct%)"
+          echo ""
+          echo "Results saved to:"
+          echo "- working.txt ($working_count domains)"
+          echo "- dead.txt ($dead_count domains)"
  
-          Write-Host "`nResults saved to:" -ForegroundColor Yellow
-          Write-Host "- working.txt ($($working.Count) domains)" -ForegroundColor Green
-          Write-Host "- dead.txt ($($dead.Count) domains)" -ForegroundColor Red
- 
-          # Create a summary for the commit/PR
-          $summary = @"
+          # Create summary report
+          cat > domain-check-summary.md << EOF
           ## 🔍 Domain Check Results
  
           **Triggered by:** Changes to blocklist.txt
-          **Date:** $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss UTC')
+          **Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
  
           ### Summary
-          - **Total domains tested:** $($domains.Count)
-          - **Working domains:** $($working.Count) ($([math]::Round(($working.Count / $domains.Count) * 100, 1))%)
-          - **Dead domains:** $($dead.Count) ($([math]::Round(($dead.Count / $domains.Count) * 100, 1))%)
+          - **Total domains tested:** $total_domains
+          - **Working domains:** $working_count ($working_pct%)
+          - **Dead domains:** $dead_count ($dead_pct%)
  
           ### Files Updated
-          - ✅ \`working.txt\` - $($working.Count) working domains
-          - ❌ \`dead.txt\` - $($dead.Count) dead domains
+          - ✅ \`working.txt\` - $working_count working domains
+          - ❌ \`dead.txt\` - $dead_count dead domains
  
-          $(if ($dead.Count -gt ($domains.Count * 0.15)) { 
-              "### ⚠️ Warning`nHigh number of dead domains detected! Consider reviewing the blocklist." 
-          } else { 
-              "### ✅ Status`nDomain health looks good!" 
-          })
-          "@
+          $(if [ $dead_pct -gt 15 ]; then
+              echo "### ⚠️ Warning"
+              echo "High number of dead domains detected! Consider reviewing the blocklist."
+          else
+              echo "### ✅ Status"
+              echo "Domain health looks good!"
+          fi)
+          EOF
  
-          $summary | Out-File "domain-check-summary.md" -Encoding UTF8
+          # Set environment variables for later steps
+          echo "TOTAL_DOMAINS=$total_domains" >> $GITHUB_ENV
+          echo "DEAD_COUNT=$dead_count" >> $GITHUB_ENV
+          echo "DEAD_PCT=$dead_pct" >> $GITHUB_ENV
  
       - name: Commit results back to repo
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add working.txt dead.txt domain-check-summary.md
-          git diff --staged --quiet || git commit -m "🤖 Update domain status files
  
-          - Updated working.txt and dead.txt
-          - Checked domains from blocklist.txt
-          - Generated domain-check-summary.md"
-          git push
-        shell: powershell
+          if ! git diff --staged --quiet; then
+              git commit -m "🤖 Update domain status files
+ 
+              - Updated working.txt and dead.txt
+              - Checked ${{ env.TOTAL_DOMAINS }} domains from blocklist.txt
+              - Generated domain-check-summary.md"
+              git push
+          else
+              echo "No changes to commit"
+          fi
  
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -117,27 +132,17 @@ jobs:
           retention-days: 30
  
       - name: Create issue if too many dead domains
-        if: always()
+        if: env.DEAD_PCT > 15
         uses: actions/github-script@v6
         with:
           script: |
             const fs = require('fs');
+            const summary = fs.readFileSync('domain-check-summary.md', 'utf8');
  
-            // Read the files to get counts
-            const workingDomains = fs.readFileSync('working.txt', 'utf8').split('\n').filter(line => line.trim() !== '');
-            const deadDomains = fs.readFileSync('dead.txt', 'utf8').split('\n').filter(line => line.trim() !== '');
-            const total = workingDomains.length + deadDomains.length;
-            const deadPercentage = (deadDomains.length / total * 100).toFixed(1);
- 
-            // Create issue if more than 15% are dead
-            if (deadPercentage > 15) {
-              const summary = fs.readFileSync('domain-check-summary.md', 'utf8');
- 
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: `⚠️ High dead domain count: ${deadDomains.length} domains (${deadPercentage}%)`,
-                body: summary,
-                labels: ['blocklist', 'maintenance', 'high-priority']
-              });
-            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `⚠️ High dead domain count: ${{ env.DEAD_COUNT }} domains (${{ env.DEAD_PCT }}%)`,
+              body: summary,
+              labels: ['blocklist', 'maintenance', 'high-priority']
+            });
