@@ -1,10 +1,7 @@
 name: Check Pi-hole Blocklist Domains
  
 on:
-  push:
-    paths:
-      - 'Blocklist.txt'
-  workflow_dispatch:  # Manual trigger for testing
+  workflow_dispatch:  # Manual trigger
  
 jobs:
   check-domains:
@@ -91,15 +88,6 @@ jobs:
           else
               echo "No changes to commit"
           fi
- 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: domain-check-results
-          path: |
-            working.txt
-            dead.txt
-          retention-days: 30
  
       - name: Create issue if too many dead domains
         if: env.DEAD_PCT > 15
