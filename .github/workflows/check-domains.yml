@@ -3,7 +3,7 @@ name: Check Pi-hole Blocklist Domains
 on:
   push:
     paths:
-      - 'blocklist.txt'
+      - 'Blocklist.txt'
   workflow_dispatch:  # Manual trigger for testing
  
 jobs:
