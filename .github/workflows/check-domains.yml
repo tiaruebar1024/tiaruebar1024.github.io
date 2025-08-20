@@ -1,0 +1,145 @@
+name: Check Pi-hole Blocklist Domains
+ 
+on:
+  push:
+    paths:
+      - 'blocklist.txt'
+  workflow_dispatch:  # Manual trigger for testing
+ 
+jobs:
+  check-domains:
+    runs-on: windows-latest
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Check domains with PowerShell
+        shell: powershell
+        run: |
+          Write-Host "🔍 Checking domains in blocklist.txt" -ForegroundColor Cyan
+ 
+          if (-not (Test-Path "blocklist.txt")) {
+              Write-Error "blocklist.txt not found!"
+              exit 1
+          }
+ 
+          # Read domains
+          $domains = Get-Content "blocklist.txt" | Where-Object { 
+              $_.Trim() -ne '' -and -not $_.StartsWith('#') -and -not $_.StartsWith('!')
+          }
+ 
+          Write-Host "📊 Testing $($domains.Count) domains..." -ForegroundColor Green
+ 
+          $working = @()
+          $dead = @()
+          $processed = 0
+ 
+          foreach ($domain in $domains) {
+              $processed++
+              $cleanDomain = $domain.Trim()
+ 
+              try {
+                  $result = Resolve-DnsName $cleanDomain -Type A -ErrorAction Stop -QuickTimeout
+                  $working += $cleanDomain
+ 
+                  # Show progress every 100 working domains
+                  if ($working.Count % 100 -eq 0) {
+                      Write-Host "✅ Progress: $($working.Count) working, $($dead.Count) dead (Total: $processed/$($domains.Count))" -ForegroundColor Green
+                  }
+              }
+              catch {
+                  $dead += $cleanDomain
+                  Write-Host "❌ Dead: $cleanDomain" -ForegroundColor Red
+              }
+          }
+ 
+          # Save results to specified files
+          $working | Out-File "working.txt" -Encoding UTF8
+          $dead | Out-File "dead.txt" -Encoding UTF8
+ 
+          # Results summary
+          Write-Host "`n📈 FINAL RESULTS:" -ForegroundColor Cyan
+          Write-Host "Total domains: $($domains.Count)" -ForegroundColor White
+          Write-Host "Working domains: $($working.Count) ($([math]::Round(($working.Count / $domains.Count) * 100, 1))%)" -ForegroundColor Green
+          Write-Host "Dead domains: $($dead.Count) ($([math]::Round(($dead.Count / $domains.Count) * 100, 1))%)" -ForegroundColor Red
+ 
+          Write-Host "`nResults saved to:" -ForegroundColor Yellow
+          Write-Host "- working.txt ($($working.Count) domains)" -ForegroundColor Green
+          Write-Host "- dead.txt ($($dead.Count) domains)" -ForegroundColor Red
+ 
+          # Create a summary for the commit/PR
+          $summary = @"
+          ## 🔍 Domain Check Results
+ 
+          **Triggered by:** Changes to blocklist.txt
+          **Date:** $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss UTC')
+ 
+          ### Summary
+          - **Total domains tested:** $($domains.Count)
+          - **Working domains:** $($working.Count) ($([math]::Round(($working.Count / $domains.Count) * 100, 1))%)
+          - **Dead domains:** $($dead.Count) ($([math]::Round(($dead.Count / $domains.Count) * 100, 1))%)
+ 
+          ### Files Updated
+          - ✅ \`working.txt\` - $($working.Count) working domains
+          - ❌ \`dead.txt\` - $($dead.Count) dead domains
+ 
+          $(if ($dead.Count -gt ($domains.Count * 0.15)) { 
+              "### ⚠️ Warning`nHigh number of dead domains detected! Consider reviewing the blocklist." 
+          } else { 
+              "### ✅ Status`nDomain health looks good!" 
+          })
+          "@
+ 
+          $summary | Out-File "domain-check-summary.md" -Encoding UTF8
+ 
+      - name: Commit results back to repo
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add working.txt dead.txt domain-check-summary.md
+          git diff --staged --quiet || git commit -m "🤖 Update domain status files
+ 
+          - Updated working.txt and dead.txt
+          - Checked $(Get-Content blocklist.txt | Where-Object { $_.Trim() -ne '' -and -not $_.StartsWith('#') }).Count domains
+          - Generated domain-check-summary.md"
+          git push
+        shell: powershell
+ 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: domain-check-results
+          path: |
+            working.txt
+            dead.txt
+            domain-check-summary.md
+          retention-days: 30
+ 
+      - name: Create issue if too many dead domains
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+ 
+            // Read the files to get counts
+            const workingDomains = fs.readFileSync('working.txt', 'utf8').split('\n').filter(line => line.trim() !== '');
+            const deadDomains = fs.readFileSync('dead.txt', 'utf8').split('\n').filter(line => line.trim() !== '');
+            const total = workingDomains.length + deadDomains.length;
+            const deadPercentage = (deadDomains.length / total * 100).toFixed(1);
+ 
+            // Create issue if more than 15% are dead
+            if (deadPercentage > 15) {
+              const summary = fs.readFileSync('domain-check-summary.md', 'utf8');
+ 
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `⚠️ High dead domain count: ${deadDomains.length} domains (${deadPercentage}%)`,
+                body: summary,
+                labels: ['blocklist', 'maintenance', 'high-priority']
+              });
+            }
+ 
+Public
