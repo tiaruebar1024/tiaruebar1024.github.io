@@ -3,7 +3,7 @@ name: Check Pi-hole Blocklist Domains
 on:
   push:
     paths:
-      - 'blocklist.txt'
+      - 'Blocklist.txt'
   workflow_dispatch:  # Manual trigger for testing
  
 jobs:
@@ -16,15 +16,15 @@ jobs:
  
       - name: Check domains with bash
         run: |
-          echo "🔍 Checking domains in blocklist.txt"
+          echo "🔍 Checking domains in Blocklist.txt"
  
-          if [ ! -f "blocklist.txt" ]; then
-              echo "❌ blocklist.txt not found!"
+          if [ ! -f "Blocklist.txt" ]; then
+              echo "❌ Blocklist.txt not found!"
               exit 1
           fi
  
           # Read domains, skip comments and empty lines
-          domains=$(grep -v '^#' blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
+          domains=$(grep -v '^#' Blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
           total_domains=$(echo "$domains" | wc -l)
  
           echo "📊 Testing $total_domains domains..."
@@ -78,7 +78,7 @@ jobs:
           cat > domain-check-summary.md << EOF
           ## 🔍 Domain Check Results
  
-          **Triggered by:** Changes to blocklist.txt
+          **Triggered by:** Changes to Blocklist.txt
           **Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')
  
           ### Summary
@@ -114,7 +114,7 @@ jobs:
               git commit -m "🤖 Update domain status files
  
               - Updated working.txt and dead.txt
-              - Checked ${{ env.TOTAL_DOMAINS }} domains from blocklist.txt
+              - Checked ${{ env.TOTAL_DOMAINS }} domains from Blocklist.txt
               - Generated domain-check-summary.md"
               git push
           else
