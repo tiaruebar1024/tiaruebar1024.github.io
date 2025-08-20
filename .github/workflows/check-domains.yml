@@ -141,5 +141,3 @@ jobs:
                 labels: ['blocklist', 'maintenance', 'high-priority']
               });
             }
- 
-Public
