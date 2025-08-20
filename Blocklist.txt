@@ -4,8 +4,6 @@
 16com.amazonaws.metrics
 202com.google.android.gms.tagmanager
 207.net
-auditrecording-pa.googleapis.com
-clienttracing-pa.googleapis.com
 23com.amplifyframework.analytics
 25com.amazonaws.metrics
 27com.google.firebase.analytics
@@ -312,6 +310,7 @@ apu.samsungelectronics.com
 atdmt.com
 atlassolutions.com
 atsmetrics.adobe.com
+auditrecording-pa.googleapis.com
 auxilium.ftb.team
 awssgp0-files.fds.api.xiaomi.com
 awstrack.me
@@ -343,6 +342,7 @@ click.aliexpress.com
 click.discord.com
 click.googleanalytics.com
 client-telemetry.roblox.com
+clienttracing-pa.googleapis.com
 clouderrorreporting.googleapis.com
 cnbj1.fds.api.xiaomi.com
 collect.tealiumiq.com
