@@ -82,8 +82,6 @@ an.facebook.com
 analytic.texas.aaa.com
 analytic.tidewater.aaa.com
 analytic.underarmour.com
-analytics-api-external-alb-222534322.cn-north-1.elb.amazonaws.com.cn
-analytics-api.samsunghealthcn.com
 analytics-api.vanceai.com
 analytics-attribution-va.tiktok.com
 analytics-attribution-va.tiktok.com.edgekey.net
