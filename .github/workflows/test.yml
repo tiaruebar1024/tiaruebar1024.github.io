@@ -1,0 +1,77 @@
+name: Check Pi-hole Blocklist Domains
+ 
+on:
+  workflow_dispatch:  # Manual trigger
+ 
+jobs:
+  check-domains:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Check domains with bash
+        run: |
+          echo "🔍 Checking domains in Blocklist.txt"
+ 
+          if [ ! -f "Blocklist.txt" ]; then
+              echo "❌ Blocklist.txt not found!"
+              exit 1
+          fi
+ 
+          # Read domains, skip comments and empty lines
+          domains=$(grep -v '^#' Blocklist.txt | grep -v '^$' | grep -v '^!' | sed 's/[[:space:]]*$//')
+          total_domains=$(echo "$domains" | wc -l)
+ 
+          echo "📊 Testing $total_domains domains..."
+ 
+          # Initialize files
+          > working.txt
+          > dead.txt
+ 
+          working_count=0
+          dead_count=0
+ 
+          # Check each domain
+          while IFS= read -r domain; do
+              [ -z "$domain" ] && continue
+ 
+              if timeout 5 dig +short "$domain" | grep -E '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' > /dev/null 2>&1; then
+                  echo "$domain" >> working.txt
+                  working_count=$((working_count + 1))
+              else
+                  echo "$domain" >> dead.txt
+                  dead_count=$((dead_count + 1))
+              fi
+          done <<< "$domains"
+ 
+          # Calculate percentages
+          dead_pct=$((dead_count * 100 / total_domains))
+ 
+          echo "📈 RESULTS: $working_count working, $dead_count dead ($dead_pct%)"
+          echo "DEAD_PCT=$dead_pct" >> $GITHUB_ENV
+          echo "DEAD_COUNT=$dead_count" >> $GITHUB_ENV
+ 
+      - name: Replace blocklist with working domains if needed
+        if: env.DEAD_PCT > 15
+        run: |
+          # Keep headers from original, add working domains
+          grep '^#\|^!' Blocklist.txt > temp_blocklist.txt
+          echo "" >> temp_blocklist.txt
+          cat working.txt >> temp_blocklist.txt
+          mv temp_blocklist.txt Blocklist.txt
+ 
+      - name: Create Pull Request
+        if: env.DEAD_PCT > 15
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: remove-dead-domains
+          delete-branch: true
+          title: "🧹 Remove ${{ env.DEAD_COUNT }} dead domains"
+          body: |
+            Removed ${{ env.DEAD_COUNT }} dead domains that no longer resolve.
+            
+            ✅ **Merge** to clean blocklist
+            ❌ **Close** to keep current blocklist
+          commit-message: "🧹 Remove ${{ env.DEAD_COUNT }} dead domains from blocklist"
