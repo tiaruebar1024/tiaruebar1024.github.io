@@ -28,8 +28,6 @@ adtracker.inmobi.com
 advp.apple.com
 adwhirl.com
 alpha.telemetry.microsoft.com
-analytics-api-external-alb-222534322.cn-north-1.elb.amazonaws.com.cn
-analytics-api.samsunghealthcn.com
 analytics-collector-28944298.us-east-1.elb.amazonaws.com
 analytics-zone-1.api.leadfamly.com
 analytics.admob.com
@@ -43,9 +41,9 @@ analytics.newsinc.com
 analytics.nionex.net
 analytics.tool.lu
 analytics.wask.co
+analytics.zevvle.com
 analytics3.starschina.com
 analyticsmatomo.ggdghor.nl
-aos.cn-northwest-1.api.amazonwebservices.com.cn
 app-performance.music.amazon.dev
 applemediaservices.com
 appmetrica.yandex.net

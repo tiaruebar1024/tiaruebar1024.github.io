@@ -82,6 +82,8 @@ an.facebook.com
 analytic.texas.aaa.com
 analytic.tidewater.aaa.com
 analytic.underarmour.com
+analytics-api-external-alb-222534322.cn-north-1.elb.amazonaws.com.cn
+analytics-api.samsunghealthcn.com
 analytics-api.vanceai.com
 analytics-attribution-va.tiktok.com
 analytics-attribution-va.tiktok.com.edgekey.net
@@ -222,7 +224,6 @@ analytics.yola.net
 analytics.yolacdn.net
 analytics.youtube.com
 analytics.zagg.com
-analytics.zevvle.com
 analytics.ziftsolutions.com
 analytics.zive.cz
 analytics01.cisco.netacad.com
@@ -231,6 +232,7 @@ analytics03.cisco.netacad.com
 analytics33.techsmith.com
 analyticsnew.overwolf.com
 analyticssec.overwolf.com
+aos.cn-northwest-1.api.amazonwebservices.com.cn
 api-adservices.apple.com
 api-analytics-qa.samsungknox.com
 api-analytics.samsungknox.com
