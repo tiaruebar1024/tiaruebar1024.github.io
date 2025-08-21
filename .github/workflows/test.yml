@@ -52,7 +52,7 @@ jobs:
           echo "📈 RESULTS: $working_count working, $dead_count dead ($dead_pct%)"
           echo "DEAD_PCT=$dead_pct" >> $GITHUB_ENV
           echo "DEAD_COUNT=$dead_count" >> $GITHUB_ENV
- 
+
       - name: Replace blocklist with working domains if needed
         if: env.DEAD_PCT > 15
         run: |
@@ -61,7 +61,7 @@ jobs:
           echo "" >> temp_blocklist.txt
           cat working.txt >> temp_blocklist.txt
           mv temp_blocklist.txt Blocklist.txt
- 
+
       - name: Create Pull Request
         if: env.DEAD_PCT > 15
         uses: peter-evans/create-pull-request@v5
