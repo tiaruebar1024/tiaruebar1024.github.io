@@ -56,11 +56,8 @@ jobs:
       - name: Replace blocklist with working domains if needed
         if: env.DEAD_PCT > 10
         run: |
-          # Keep headers from original, add working domains (handle case with no headers)
-          grep '^#\|^!' Blocklist.txt > temp_blocklist.txt || true
-          echo "" >> temp_blocklist.txt
-          cat working.txt >> temp_blocklist.txt
-          mv temp_blocklist.txt Blocklist.txt
+          # Simply replace with working domains only
+          cp working.txt Blocklist.txt
 
       - name: Create Pull Request
         if: env.DEAD_PCT > 10
