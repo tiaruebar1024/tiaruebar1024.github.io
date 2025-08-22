@@ -9,7 +9,6 @@
 27com.google.firebase.analytics
 2com.google.firebase.analytics
 2o7.net
-applytics.napps-1.com
 349com.google.android.gms.measurement
 404com.iab.omid.library
 44com.google.android.gms.analytics
@@ -302,6 +301,7 @@ applog.snssdk.com
 applog.snssdk.com.bytedns1.com
 applog.snssdk.com.queniuiq.com
 applog.snssdk.com.w.kunluncan.com
+applytics.napps-1.com
 appmetrica.yandex.com
 appmetrica.yandex.net
 appmetrica.yandex.ru
