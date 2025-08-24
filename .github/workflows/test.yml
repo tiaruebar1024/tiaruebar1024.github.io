@@ -54,13 +54,13 @@ jobs:
           echo "DEAD_COUNT=$dead_count" >> $GITHUB_ENV
 
       - name: Replace blocklist with working domains if needed
-        if: env.DEAD_PCT > 10
+        if: env.DEAD_PCT > 5
         run: |
           # Simply replace with working domains only
           cp working.txt Blocklist.txt
 
       - name: Create Pull Request
-        if: env.DEAD_PCT > 10
+        if: env.DEAD_PCT > 5
         uses: peter-evans/create-pull-request@v5
         with:
           branch: remove-dead-domains
