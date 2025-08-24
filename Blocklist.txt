@@ -7,6 +7,7 @@ aax-eu.amazon.co.uk
 aax-eu.amazon.com
 aax-eu.amazon.se
 aax-fe.amazon.com
+analytics.test.jyxo-stag.cz
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
 aax.amazon-adsystem.com
