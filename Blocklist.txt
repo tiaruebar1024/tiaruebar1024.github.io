@@ -7,7 +7,6 @@ aax-eu.amazon.co.uk
 aax-eu.amazon.com
 aax-eu.amazon.se
 aax-fe.amazon.com
-analytics.test.jyxo-stag.cz
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
 aax.amazon-adsystem.com
@@ -192,6 +191,7 @@ analytics.squidhq.com
 analytics.stash.com.cdn.cloudflare.net
 analytics.supplyframe.com
 analytics.talentegy.com
+analytics.test.jyxo-stag.cz
 analytics.threedeepmarketing.com
 analytics.tiktok.com
 analytics.tiktok.com.edgekey.net
