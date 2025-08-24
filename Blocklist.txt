@@ -4,10 +4,6 @@ a8track.speakbuddy-personalcoaching.com
 a8track.www.pontely.com
 aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
-ecsv2.roblox.com
-client-telemetry.roblox.com
-metrics.roblox.com
-tracing.roblox.com
 aax-eu.amazon.com
 aax-eu.amazon.se
 aax-fe.amazon.com
@@ -336,6 +332,7 @@ dpu.samsungelectronics.com
 dtm-client-analytics-prod.cloud.cs.xcal.tv
 dyntracker.com
 e4k-client-tracking.goodgamestudios.com
+ecsv2.roblox.com
 emailtracking.appsflyer.com
 engine.mobileapptracking.com
 etracker.com
