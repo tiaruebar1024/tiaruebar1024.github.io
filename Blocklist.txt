@@ -5,6 +5,7 @@ a8track.www.pontely.com
 aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
+vizits.io
 aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-iad.amazon.com
