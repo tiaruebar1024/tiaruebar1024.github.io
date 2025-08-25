@@ -862,4 +862,3 @@ youtubeanalytics.googleapis.com
 ypu.samsungelectronics.com
 zeus.ad.xiaomi.com
 zpu.samsungelectronics.com
-||betterday247.cloud^
