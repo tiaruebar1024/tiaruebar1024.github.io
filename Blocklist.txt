@@ -1,4 +1,4 @@
-*.betterday247.cloud
+||betterday247.cloud^
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
 a8track.speakbuddy-personalcoaching.com
