@@ -5,7 +5,6 @@ a8track.www.pontely.com
 aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
-betterday247.cloud
 aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-iad.amazon.com
@@ -268,6 +267,7 @@ auxilium.ftb.team
 awssgp0-files.fds.api.xiaomi.com
 awsusor0-cdn.fds-ssl.api.xiaomi.com
 b2banalytics.samsungknox.com
+betterday247.cloud
 bfmobileharvest-client-tracking.goodgamestudios.com
 bgp.fe01.c3.xiaomi.com
 bigdata-lbs-pri-c3.alb.xiaomi.com
