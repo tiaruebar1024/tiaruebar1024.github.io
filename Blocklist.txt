@@ -1,4 +1,3 @@
-||betterday247.cloud^
 a0.app.xiaomi.com
 a8.track.entry.dokoyorimo.com
 a8track.speakbuddy-personalcoaching.com
@@ -863,3 +862,4 @@ youtubeanalytics.googleapis.com
 ypu.samsungelectronics.com
 zeus.ad.xiaomi.com
 zpu.samsungelectronics.com
+||betterday247.cloud^
