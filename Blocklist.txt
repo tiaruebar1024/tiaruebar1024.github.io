@@ -5,7 +5,6 @@ a8track.www.pontely.com
 aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
-vizits.io
 aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-iad.amazon.com
@@ -820,6 +819,7 @@ v10.events.data.microsoft.com
 v16-ad.byteoversea.com.edgesuite.net
 video-ad-stats.googlesyndication.com
 visitor-analytics.io
+vizits.io
 vortex-sandbox.data.microsoft.com
 vortex-win.data.microsoft.com
 vortex.data.microsoft.com
