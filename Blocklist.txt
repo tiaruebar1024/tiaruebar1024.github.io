@@ -267,7 +267,7 @@ auxilium.ftb.team
 awssgp0-files.fds.api.xiaomi.com
 awsusor0-cdn.fds-ssl.api.xiaomi.com
 b2banalytics.samsungknox.com
-betterday247.cloud
+*.betterday247.cloud
 bfmobileharvest-client-tracking.goodgamestudios.com
 bgp.fe01.c3.xiaomi.com
 bigdata-lbs-pri-c3.alb.xiaomi.com
