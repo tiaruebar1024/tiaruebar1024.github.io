@@ -17,6 +17,7 @@ ad.doubleclick.net
 ad2.doubleclick.net
 adconfiguration.roblox.com
 adeventtracker.spotify.com
+o76327.ingest.sentry.io
 adfstat.yandex.ru
 adgoogle.net
 admob-cn.com
