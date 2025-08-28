@@ -17,7 +17,6 @@ ad.doubleclick.net
 ad2.doubleclick.net
 adconfiguration.roblox.com
 adeventtracker.spotify.com
-o76327.ingest.sentry.io
 adfstat.yandex.ru
 adgoogle.net
 admob-cn.com
@@ -563,6 +562,7 @@ notes-analytics-events.apple.com
 o1069899.ingest.sentry.io
 o2o.api.xiaomi.com
 o485889.ingest.us.sentry.io
+o76327.ingest.sentry.io
 oca.telemetry.microsoft.com
 onecollector.cloudapp.aria.akadns.net
 opencensus.io
