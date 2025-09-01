@@ -281,7 +281,6 @@ cdn.fds.api.xiaomi.com
 cdn.heapanalytics.com
 cellrebel.com
 click.aliexpress.com
-click.discord.com
 click.googleanalytics.com
 client-telemetry.roblox.com
 clienttracing-pa.googleapis.com
