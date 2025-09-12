@@ -9,6 +9,7 @@ aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
+o67374.ingest.sentry.io
 aax.amazon-adsystem.com
 ab.apple.com.akadns.net
 acfeedbackws.icloud.com
