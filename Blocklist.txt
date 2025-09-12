@@ -9,7 +9,6 @@ aax-eu.amazon.se
 aax-fe.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
-o67374.ingest.sentry.io
 aax.amazon-adsystem.com
 ab.apple.com.akadns.net
 acfeedbackws.icloud.com
@@ -562,6 +561,7 @@ notes-analytics-events.apple.com
 o1069899.ingest.sentry.io
 o2o.api.xiaomi.com
 o485889.ingest.us.sentry.io
+o67374.ingest.sentry.io
 o76327.ingest.sentry.io
 oca.telemetry.microsoft.com
 onecollector.cloudapp.aria.akadns.net
