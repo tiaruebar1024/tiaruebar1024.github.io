@@ -4,6 +4,7 @@ a8track.speakbuddy-personalcoaching.com
 a8track.www.pontely.com
 aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
+graph.facebook.com
 aax-eu.amazon.com
 aax-eu.amazon.se
 aax-fe.amazon.com
