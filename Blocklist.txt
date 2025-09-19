@@ -6,6 +6,7 @@ aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
 aax-eu.amazon.se
+graph-fallback.facebook.com
 aax-fe.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
