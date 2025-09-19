@@ -6,7 +6,6 @@ aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
 aax-eu.amazon.se
-adv.sec.intl.miui.com
 aax-fe.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
@@ -70,6 +69,7 @@ adservice.google.cz
 adsgoogle.com
 adstats.tencentmusic.com
 adstransparency.google.com
+adv.sec.intl.miui.com
 advertiseondish.com
 advertising.apple.com
 advil-dev-gae.gcp.wazestg.com
