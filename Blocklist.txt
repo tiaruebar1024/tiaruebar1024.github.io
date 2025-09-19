@@ -377,8 +377,6 @@ googletraveladservices.com
 googlevads-cn.com
 gpm-mon-sg.byteoversea.com
 gpm-mon-sg.byteoversea.com.edgesuite.net
-graph-fallback.facebook.com
-graph.facebook.com
 graph.instagram.com
 gstaticadssl.l.google.com
 heapanalytics.com
