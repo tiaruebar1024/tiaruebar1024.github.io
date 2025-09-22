@@ -6,7 +6,6 @@ aanalytics.adelaide.edu.au
 aax-eu.amazon.co.uk
 aax-eu.amazon.com
 aax-eu.amazon.se
-browser-intake-datadoghq.com
 aax-fe.amazon.com
 aax-us-iad.amazon.com
 aax-us.amazon-adsystem.com
@@ -275,6 +274,7 @@ bigdata-lbs-pri-c3.alb.xiaomi.com
 books-analytics-events.apple.com
 bpu.samsungelectronics.com
 branch.io
+browser-intake-datadoghq.com
 bstats.org
 bugreport.xiaomi.net
 c-msn-com-nsatc.trafficmanager.net
