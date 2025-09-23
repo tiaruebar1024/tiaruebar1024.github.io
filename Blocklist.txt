@@ -324,7 +324,6 @@ device-metrics-us.amazon.com
 df.telemetry.microsoft.com
 diagmon-policy.samsungdm.com
 diagmon-serviceapi.samsungdm.com
-discovery.meethue.com
 dit.whatsapp.net
 dmtracker.com
 do-not-tracker.org
