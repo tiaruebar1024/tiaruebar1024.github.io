@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Current Status</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #f6f6fa;
+      color: #202339;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .status-box {
+      margin-top: 2vw;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(60,70,110,0.13);
+      text-align: center;
+    }
+    .greeting {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #4e3fa6;
+      margin-bottom: 22px;
+      margin-top: -8px;
+      letter-spacing: 0.02em;
+    }
+    .status-title {
+      font-size: 2.6em;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #3567e2;
+      letter-spacing: 0.04em;
+      transition: color .4s;
+    }
+    .subtitle {
+      font-size: 1.25em;
+      color: #225;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 600px) {
+      .status-box { padding: 24px 6px;}
+      .greeting { font-size: 1.05em;}
+      .status-title { font-size: 1.25em;}
+      .subtitle { font-size: 1em;}
+    }
+  </style>
+</head>
+<body>
+  <div class="status-box">
+    <div class="greeting">Hello, I'm a person. What are you even doing here?</div>
+    <div class="status-title" id="statusTitle"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <script>
+    function getCZTime() {
+      const now = new Date();
+      let year = now.getFullYear();
+      // DST start: last Sunday in March
+      let dstStart = new Date(year, 2, 31);
+      dstStart.setDate(31 - dstStart.getDay());
+      // DST end: last Sunday in October
+      let dstEnd = new Date(year, 9, 31);
+      dstEnd.setDate(31 - dstEnd.getDay());
+      let isDST = now >= dstStart && now < dstEnd;
+      let offset = isDST ? 2 : 1;
+      let cz = new Date(now.getTime() + offset * 60 * 60 * 1000);
+      return cz;
+    }
+    function getCurrentStatus() {
+      const cz = getCZTime();
+      const weekday = cz.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
+      const hour = cz.getHours();
+      const minute = cz.getMinutes();
+      function timeIsBetween(h1, m1, h2, m2) {
+        const nowMinutes = hour * 60 + minute;
+        const start = h1 * 60 + m1;
+        const end = h2 * 60 + m2;
+        return nowMinutes >= start && nowMinutes <= end;
+      }
+      // School schedule
+      const schoolTimes = {
+        1: {start: [8,0], end: [14,45]}, // Monday
+        2: {start: [8,0], end: [12,55]}, // Tuesday
+        3: {start: [8,0], end: [14,45]}, // Wednesday
+        4: {start: [8,0], end: [14,45]}, // Thursday
+        5: {start: [8,0], end: [12,55]}  // Friday
+      };
+      // Sleeping: 22:00–6:05 every day
+      if ((hour >= 22) || (hour < 6) || (hour === 6 && minute <= 5)) {
+        return {
+          status: "I'm currently probably sleeping",
+          subtitle: `It's ${["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][weekday]} night (${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")}, CZ)`
+        };
+      }
+      // In school
+      if (schoolTimes[weekday] && timeIsBetween(schoolTimes[weekday].start[0], schoolTimes[weekday].start[1], schoolTimes[weekday].end[0], schoolTimes[weekday].end[1])) {
+        return {
+          status: "I'm currently in school",
+          subtitle: `It's ${["Monday","Tuesday","Wednesday","Thursday","Friday"][weekday-1]} school time`
+        };
+      }
+      // Otherwise: Existing
+      return {
+        status: "I'm currently existing",
+        subtitle: `Current time: ${["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][weekday]}, ${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")} (CZ)`
+      };
+    }
+    function updateStatus() {
+      const info = getCurrentStatus();
+      document.title = info.status;
+      document.getElementById('statusTitle').
