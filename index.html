@@ -30,10 +30,9 @@
     .status-title {
       font-size: 2em;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       color: #3567e2;
       letter-spacing: 0.04em;
-      transition: color .4s;
     }
     .subtitle {
       font-size: 1.13em;
@@ -58,22 +57,30 @@
     </div>
   </div>
   <script>
-    function getCZTime() {
-      const now = new Date();
-      let year = now.getFullYear();
+    // Calculate Czech time, including daylight saving (DST)
+    function getCzechTime() {
+      const nowUtc = new Date();
+      const year = nowUtc.getUTCFullYear();
       // DST start: last Sunday in March
-      let dstStart = new Date(year, 2, 31);
-      dstStart.setDate(31 - dstStart.getDay());
+      const march31 = new Date(Date.UTC(year, 2, 31, 1)); // 1AM UTC
+      const marchDst = new Date(march31);
+      marchDst.setUTCDate(31 - march31.getUTCDay()); // Go to last Sunday in March
       // DST end: last Sunday in October
-      let dstEnd = new Date(year, 9, 31);
-      dstEnd.setDate(31 - dstEnd.getDay());
-      let isDST = now >= dstStart && now < dstEnd;
-      let offset = isDST ? 2 : 1;
-      let cz = new Date(now.getTime() + offset * 60 * 60 * 1000);
-      return cz;
+      const oct31 = new Date(Date.UTC(year, 9, 31, 1)); // 1AM UTC
+      const octDst = new Date(oct31);
+      octDst.setUTCDate(31 - oct31.getUTCDay()); // Go to last Sunday in October
+
+      // If between DST start and DST end, offset = +2; else +1 (UTC)
+      let offset = (nowUtc >= marchDst && nowUtc < octDst) ? 2 : 1;
+
+      // Czech time, ISO style
+      const czTime = new Date(nowUtc.getTime() + offset * 60 * 60 * 1000);
+
+      return czTime;
     }
+
     function getCurrentStatus() {
-      const cz = getCZTime();
+      const cz = getCzechTime();
       const weekday = cz.getDay(); // 0=Sun, 1=Mon, ..., 6=Sat
       const hour = cz.getHours();
       const minute = cz.getMinutes();
@@ -83,7 +90,7 @@
         const end = h2 * 60 + m2;
         return nowMinutes >= start && nowMinutes <= end;
       }
-      // School schedule
+      // School schedule (CZ time)
       const schoolTimes = {
         1: {start: [8,0], end: [14,45]}, // Monday
         2: {start: [8,0], end: [12,55]}, // Tuesday
@@ -95,20 +102,20 @@
       if ((hour >= 22) || (hour < 6) || (hour === 6 && minute <= 5)) {
         return {
           status: "I'm currently probably sleeping",
-          subtitle: `It's ${["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][weekday]} night (${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")}, CZ)`
+          subtitle: "Zzz..."
         };
       }
       // In school
       if (schoolTimes[weekday] && timeIsBetween(schoolTimes[weekday].start[0], schoolTimes[weekday].start[1], schoolTimes[weekday].end[0], schoolTimes[weekday].end[1])) {
         return {
           status: "I'm currently in school",
-          subtitle: `It's ${["Monday","Tuesday","Wednesday","Thursday","Friday"][weekday-1]} school time`
+          subtitle: "School time"
         };
       }
       // Otherwise: Existing
       return {
         status: "I'm currently existing",
-        subtitle: `Current time: ${["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][weekday]}, ${String(hour).padStart(2,"0")}:${String(minute).padStart(2,"0")} (CZ)`
+        subtitle: ""
       };
     }
     function updateStatus() {
