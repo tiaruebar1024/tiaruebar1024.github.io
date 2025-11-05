@@ -10,55 +10,52 @@
       margin: 0;
       background: #f6f6fa;
       color: #202339;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
     }
-    .status-box {
-      margin-top: 2vw;
+    .container {
+      max-width: 530px;
+      margin: 44px auto 0 auto;
       background: #fff;
-      padding: 40px 30px;
+      padding: 34px 28px 28px 28px;
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(60,70,110,0.13);
-      text-align: center;
     }
     .greeting {
-      font-size: 1.4em;
+      font-size: 1.24em;
       font-weight: 600;
       color: #4e3fa6;
-      margin-bottom: 22px;
-      margin-top: -8px;
-      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+      margin-top: -6px;
+      letter-spacing: 0.01em;
     }
     .status-title {
-      font-size: 2.6em;
+      font-size: 2em;
       font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       color: #3567e2;
       letter-spacing: 0.04em;
       transition: color .4s;
     }
     .subtitle {
-      font-size: 1.25em;
+      font-size: 1.13em;
       color: #225;
-      margin-bottom: 6px;
-      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
     }
     @media (max-width: 600px) {
-      .status-box { padding: 24px 6px;}
-      .greeting { font-size: 1.05em;}
-      .status-title { font-size: 1.25em;}
-      .subtitle { font-size: 1em;}
+      .container { padding: 16px 5px;}
+      .greeting { font-size: 1em;}
+      .status-title { font-size: 1.1em;}
+      .subtitle { font-size: .97em;}
     }
   </style>
 </head>
 <body>
-  <div class="status-box">
+  <div class="container">
     <div class="greeting">Hello, I'm a person. What are you even doing here?</div>
-    <div class="status-title" id="statusTitle"></div>
-    <div class="subtitle" id="subtitle"></div>
+    <div id="statusBlock">
+      <div class="status-title" id="statusTitle"></div>
+      <div class="subtitle" id="subtitle"></div>
+    </div>
   </div>
   <script>
     function getCZTime() {
@@ -117,4 +114,11 @@
     function updateStatus() {
       const info = getCurrentStatus();
       document.title = info.status;
-      document.getElementById('statusTitle').
+      document.getElementById('statusTitle').textContent = info.status;
+      document.getElementById('subtitle').textContent = info.subtitle;
+    }
+    updateStatus();
+    setInterval(updateStatus, 60000);
+  </script>
+</body>
+</html>
