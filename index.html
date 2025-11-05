@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Current Status</title>
+  <title>NO</title>
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -118,9 +118,10 @@
         subtitle: ""
       };
     }
+    // Update only status block; DON'T change tab title
     function updateStatus() {
       const info = getCurrentStatus();
-      document.title = info.status;
+      // Note: Leave tab title as "NO"
       document.getElementById('statusTitle').textContent = info.status;
       document.getElementById('subtitle').textContent = info.subtitle;
     }
