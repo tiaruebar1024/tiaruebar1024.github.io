@@ -39,7 +39,7 @@
     <div class="log-message" id="logMessage"></div>
     
     <script>
-        function updateTime() {
+        function generateTimestamp() {
             const now = new Date();
             const options = { 
                 weekday: 'long', 
@@ -55,8 +55,7 @@
             document.getElementById('logMessage').textContent = `[INFO] ${timeString} - Access attempt logged to /Internal/Logs.txt`;
         }
         
-        updateTime();
-        setInterval(updateTime, 1000);
+        generateTimestamp();
     </script>
 </body>
 </html>
