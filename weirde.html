@@ -8,8 +8,8 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
+            background: white;
+            color: black;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
@@ -23,26 +23,40 @@
             font-size: 4rem;
             font-weight: bold;
             text-align: center;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
         
         .log-message {
             position: absolute;
             bottom: 20px;
             font-size: 0.8rem;
-            color: #aaa;
+            color: #333;
             font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
     <div class="main-text">Hell nah we are in school</div>
-    <div class="log-message">[INFO] Thursday, January 08, 2026, 7:02 AM CET - Access attempt logged to /Internal/Logs.txt</div>
+    <div class="log-message" id="logMessage"></div>
+    
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                timeZoneName: 'short'
+            };
+            const timeString = now.toLocaleString('en-US', options);
+            document.getElementById('logMessage').textContent = `[INFO] ${timeString} - Access attempt logged to /Internal/Logs.txt`;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
