@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a5f00"/>
+      <stop offset="18%" stop-color="#f5c518"/>
+      <stop offset="38%" stop-color="#ffe98a"/>
+      <stop offset="55%" stop-color="#c8930a"/>
+      <stop offset="75%" stop-color="#8a5f00"/>
+      <stop offset="100%" stop-color="#e8b913"/>
+    </linearGradient>
+    <linearGradient id="goldLetter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f9dc6a"/>
+      <stop offset="30%" stop-color="#f0b90c"/>
+      <stop offset="62%" stop-color="#c8930a"/>
+      <stop offset="85%" stop-color="#e8b70f"/>
+      <stop offset="100%" stop-color="#a57500"/>
+    </linearGradient>
+    <linearGradient id="goldCrown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbe27a"/>
+      <stop offset="45%" stop-color="#eeb90d"/>
+      <stop offset="100%" stop-color="#a57500"/>
+    </linearGradient>
+    <linearGradient id="goldSwoosh" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8a5f00"/>
+      <stop offset="25%" stop-color="#f2c317"/>
+      <stop offset="55%" stop-color="#ffe063"/>
+      <stop offset="80%" stop-color="#c8930a"/>
+      <stop offset="100%" stop-color="#f5c518"/>
+    </linearGradient>
+    <radialGradient id="disc" cx="38%" cy="32%" r="95%">
+      <stop offset="0%" stop-color="#2b1f0c"/>
+      <stop offset="60%" stop-color="#1d1508"/>
+      <stop offset="100%" stop-color="#140e04"/>
+    </radialGradient>
+    <filter id="bevel" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- vnitřní disk (teplá tmavá, ne černá) -->
+  <circle cx="200" cy="200" r="172" fill="url(#disc)"/>
+
+  <!-- prsteny -->
+  <circle cx="200" cy="200" r="181" fill="none" stroke="url(#goldRing)" stroke-width="3.5"/>
+  <circle cx="200" cy="200" r="163" fill="none" stroke="#0a0703" stroke-width="22"/>
+  <circle cx="200" cy="200" r="163" fill="none" stroke="url(#goldRing)" stroke-width="15"/>
+  <circle cx="200" cy="200" r="169.5" fill="none" stroke="#6b4a00" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="200" cy="200" r="156.5" fill="none" stroke="#6b4a00" stroke-width="1.2" opacity="0.7"/>
+
+  <!-- koruna -->
+  <g filter="url(#bevel)">
+    <circle cx="144" cy="84" r="7" fill="url(#goldCrown)" stroke="#4e3300" stroke-width="2"/>
+    <circle cx="202" cy="62" r="8" fill="url(#goldCrown)" stroke="#4e3300" stroke-width="2"/>
+    <circle cx="260" cy="84" r="7" fill="url(#goldCrown)" stroke="#4e3300" stroke-width="2"/>
+    <path d="M 136,116
+             C 138,100 141,92 146,88
+             L 168,110
+             L 200,70
+             L 232,110
+             L 254,88
+             C 259,92 262,100 264,116
+             Q 200,132 136,116 Z"
+          fill="url(#goldCrown)" stroke="#4e3300" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+  <!-- široká vlnka pod korunou -->
+  <path d="M 142,128 Q 200,152 258,126 Q 200,142 142,128 Z"
+        fill="url(#goldSwoosh)" stroke="#4e3300" stroke-width="1.2" filter="url(#bevel)"/>
+
+  <!-- H — níž, vpravo -->
+  <g filter="url(#bevel)">
+    <text x="196" y="298" font-family="Georgia, 'Times New Roman', serif" font-weight="bold"
+          font-size="196" textLength="112" lengthAdjust="spacingAndGlyphs"
+          fill="url(#goldLetter)" stroke="#4e3300" stroke-width="2">H</text>
+  </g>
+  <!-- B — výš, vlevo, překrývá H -->
+  <g filter="url(#bevel)">
+    <text x="103" y="282" font-family="Georgia, 'Times New Roman', serif" font-weight="bold"
+          font-size="200" textLength="118" lengthAdjust="spacingAndGlyphs"
+          fill="url(#goldLetter)" stroke="#4e3300" stroke-width="2">B</text>
+  </g>
+
+  <!-- orbitální swash okolo monogramu -->
+  <path d="M 331,151
+           C 282,156 212,178 152,210
+           C 116,229 86,248 79,263
+           C 72,277 84,286 106,288
+           C 152,292 214,286 256,276
+           C 268,273 276,270 280,268
+           C 250,276 196,280 152,275
+           C 124,271 110,264 112,255
+           C 114,245 132,233 158,220
+           C 210,195 280,168 331,151 Z"
+        fill="url(#goldSwoosh)" stroke="#4e3300" stroke-width="1.5" stroke-linejoin="round" filter="url(#bevel)"/>
+
+  <!-- TM -->
+  <text x="298" y="224" font-family="Verdana, Arial, sans-serif" font-weight="bold"
+        font-size="27" letter-spacing="1" fill="url(#goldLetter)" stroke="#4e3300" stroke-width="0.8">TM</text>
+</svg>
