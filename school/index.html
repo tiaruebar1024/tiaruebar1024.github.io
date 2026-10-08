@@ -265,7 +265,7 @@
   <p class="sub">Prémiové produkty za prémiové ceny.</p>
   <a class="btn" href="#produkty">PROHLÉDNOUT NABÍDKU ≫</a>
   <div class="countdown">
-    <div class="cd-box"><b id="cd-d">3</b><span>dní</span></div>
+    <div class="cd-box"><b id="cd-d">3</b><span>dny</span></div>
     <div class="cd-box"><b id="cd-h">00</b><span>hodin</span></div>
     <div class="cd-box"><b id="cd-m">00</b><span>minut</span></div>
     <div class="cd-box"><b id="cd-s">00</b><span>sekund</span></div>
@@ -472,7 +472,7 @@
     const box = document.getElementById('cart-items');
     const ids = Object.keys(cart);
     if(ids.length === 0){
-      box.innerHTML = '<p class="cart-empty">Váš košík je prázdný.<br>Tak prázdný, jako láhev vzduchu před prodejem.</p>';
+      box.innerHTML = '<p class="cart-empty">Váš košík je prázdný.</p>';
     } else {
       box.innerHTML = ids.map(id=>{
         const i = cart[id];
@@ -550,7 +550,7 @@
         <div class="cart-total"><span>Celkem:</span><b id="cart-total">0 Kč</b></div>
         <button class="btn-pay" id="pay-btn" onclick="checkout()" disabled>ZAPLATIT</button>
         <p style="font-size:.62rem;color:#5d5335;font-style:italic;margin-top:10px;text-align:center;">
-          Platbou souhlasíte s tím, že vaše údaje pro platbu již máme.
+          Platbou souhlasíte s tím, že zboží je nevratné.
         </p>
       </div>`;
     renderCart();
