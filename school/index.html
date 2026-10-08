@@ -449,6 +449,16 @@
   const cart = {}; // {id: {name, price, qty}}
   const fmt = n => n.toLocaleString('cs-CZ', {minimumFractionDigits: 0, maximumFractionDigits: 1}) + ' Kč';
 
+  // Automatické spravování Hamzy zdarma ke každé objednávce
+  function updateHamza(){
+    const hasOtherItems = Object.keys(cart).some(id => id !== 'hamza' && cart[id].qty > 0);
+    if(hasOtherItems){
+      cart['hamza'] = { name: 'HAMZA V KRABICI (Zdarma)', price: 0, qty: 1 };
+    } else {
+      delete cart['hamza'];
+    }
+  }
+
   function addToCart(id, name, price){
     if(!cart[id]) cart[id] = {name, price, qty: 0};
     cart[id].qty++;
@@ -457,7 +467,7 @@
   }
 
   function changeQty(id, delta){
-    if(!cart[id]) return;
+    if(id === 'hamza' || !cart[id]) return; // Hamzu nelze ručně upravovat
     cart[id].qty += delta;
     if(cart[id].qty <= 0) delete cart[id];
     renderCart();
@@ -468,14 +478,29 @@
   }
 
   function renderCart(){
+    updateHamza(); // Zajistí přidání nebo odebrání Hamzy podle stavu košíku
+    
     document.getElementById('cart-count').textContent = cartCount();
     const box = document.getElementById('cart-items');
     const ids = Object.keys(cart);
+    
     if(ids.length === 0){
       box.innerHTML = '<p class="cart-empty">Váš košík je prázdný.</p>';
     } else {
       box.innerHTML = ids.map(id=>{
         const i = cart[id];
+        // Zvláštní zobrazení pro automatického Hamzu (bez tlačítek pro změnu počtu)
+        if(id === 'hamza'){
+          return `<div class="cart-item">
+            <div>
+              <div class="ci-name">${i.name}</div>
+              <div class="ci-price">0 Kč (Dárek ke každé objednávce)</div>
+            </div>
+            <div class="ci-qty">
+              <b>1 ks</b>
+            </div>
+          </div>`;
+        }
         return `<div class="cart-item">
           <div>
             <div class="ci-name">${i.name}</div>
@@ -492,7 +517,10 @@
     }
     const total = Object.values(cart).reduce((s,i)=>s+i.price*i.qty,0);
     document.getElementById('cart-total').textContent = fmt(total);
-    document.getElementById('pay-btn').disabled = ids.length === 0;
+    
+    // Tlačítko Zaplatit je aktivní pouze pokud je v košíku i jiné zboží než samotný Hamza
+    const hasPaidItems = Object.keys(cart).some(id => id !== 'hamza');
+    document.getElementById('pay-btn').disabled = !hasPaidItems;
   }
 
   function openCart(){ renderCart(); showCartList(); document.getElementById('cart-drawer').classList.add('open'); document.getElementById('cart-overlay').classList.add('show'); }
@@ -527,7 +555,6 @@
   }
 
   function renderCartListOnly(){
-    // aktualizuje pouze interní stav košíku, bez přepsání potvrzení nákupu
     document.getElementById('cart-count').textContent = 0;
   }
 
@@ -535,7 +562,6 @@
     const drawer = document.getElementById('cart-drawer');
     drawer.classList.remove('open');
     document.getElementById('cart-overlay').classList.remove('show');
-    // obnovit strukturu košíku pro další použití
     setTimeout(()=>{
       body_reset();
     }, 350);
